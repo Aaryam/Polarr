@@ -159,6 +159,8 @@ function addMsg(content, isMine) {
 
     contentBox.appendChild(msg);
     contentBox.appendChild(clear);
+
+    contentBox.scrollTop = contentBox.scrollHeight;
 }
 
 msgBtn.addEventListener('click', function () {
