@@ -136,6 +136,12 @@ copyBtn.addEventListener('click', function () {
     copyToClp(link);
 });
 
+msgInput.addEventListener('keydown', function (e) {
+    if (e.keyCode == 13) {
+        addMsg(msgInput.value, true);
+    }
+})
+
 function addMsg(content, isMine) {
     let msg = document.createElement('p');
     let clear = document.createElement('div');
@@ -144,6 +150,7 @@ function addMsg(content, isMine) {
 
     if (isMine) {
         msg.classList.add('mine');
+        msgInput.innerText = "";
     }
 
     msg.innerText = content;
