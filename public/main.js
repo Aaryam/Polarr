@@ -139,6 +139,7 @@ copyBtn.addEventListener('click', function () {
 msgInput.addEventListener('keydown', function (e) {
     if (e.keyCode == 13) {
         addMsg(msgInput.value, true);
+        sendMsg(msgInput.value, 'msg');
     }
 })
 
@@ -147,12 +148,6 @@ function addMsg(content, isMine) {
     let clear = document.createElement('div');
 
     msg.classList.add('msg');
-
-    if (isMine) {
-        msg.classList.add('mine');
-        msgInput.innerText = "";
-    }
-
     msg.innerText = content;
 
     clear.classList.add('clear');
@@ -161,6 +156,11 @@ function addMsg(content, isMine) {
     contentBox.appendChild(clear);
 
     contentBox.scrollTop = contentBox.scrollHeight;
+
+    if (isMine) {
+        msg.classList.add('mine');
+        // msgInput.value = "";
+    }
 }
 
 msgBtn.addEventListener('click', function () {
